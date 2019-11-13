@@ -15,40 +15,83 @@ public:
 	
 };
 
-class TAD3 :public TAD {
+class TAD1 : public TAD {
 public:
-	std::string valor;
+	std::string pessoa;
 	void escrever() override {
-
-		std::cout << valor;
-
+		std::cout << pessoa;
 	}
-
 	void ler() override {
-		std::string registro;
-			std::cout << "Valor do registro: ";
-			std::cin >> registro;
-			if (registro.length() > 10) {
-				std::cout << "Valor muito grande";
+		std::string nome;
+		std::cout << "Digite o nome completo: ";
+		std::cin >> nome;
+		if (nome.length() > 50) {
+			std::cout << "Nome muito grande para salvar, por favor abrevie";
+			return;
+		}
+		else {
+			pessoa = nome;
+		}
+	}
+};
+	class TAD2 : public TAD {
+	public:
+		std::string endereco;
+
+		void escrever() override {
+			std::cout << endereco;
+		}
+
+		void ler() override {
+			std::string end;
+			std::cout << "Digite o endereco:";
+			std::cin >> end;
+			if (end.length() > 30) {
+				std::cout << "Endereco muito grande, por favor abrevie";
 				return;
 			}
 			else {
-				valor = registro;
+				endereco = end;
 			}
-		//	colunas.push_back(colunas_add);
-		
-	}
+		}
 };
 
-class TAD2 {
+	class TAD3 :public TAD {
+	public:
+		std::string veiculo;
+		void escrever() override {
+			std::cout << veiculo;
+		}
 
-};
+		void ler() override {
+			std::string carro;
+			std::cout << "digite o nome do veiculo: ";
+			std::cin >> carro;
+			if (carro.length() > 10) {
+				std::cout << "Valor muito grande para ser salvo";
+				return;
+			}
+			else {
+				veiculo = carro;
+			}
+			//	colunas.push_back(colunas_add);
+		}
+	};
+
 
 int main() {
-	TAD3 tad3;
-	tad3.ler();
-	tad3.escrever();
+	
+	TAD1 nome;
+	nome.ler();
+	nome.escrever();
 
+	TAD2 endereco;
+	endereco.ler();
+	endereco.escrever();
+
+	TAD3 veiculo;
+	veiculo.ler();
+	veiculo.escrever();
 
 	return 0;
 }
